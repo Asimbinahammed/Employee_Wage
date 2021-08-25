@@ -6,17 +6,23 @@ public class EmployyeeWage {
 	public static final  int IS_PART_TIME =1;
 	public static final  int EMP_RATE_PER_HOUR =8;
 	public static final  int Working_Days =20;
+	public static final  int Working_Hours =100;
 	
 	//main method
-	public static void main(String[] args) {
-		int empCheck =(int) Math.floor(Math.random()*10)%3;
+	public static void main(String[] args) {	
 		EmployyeeWage obj=new EmployyeeWage();
-		obj.workingDays(empCheck);
+		obj.empCalc();
 	}
-		//calculation of total wage
-		public void workingDays(int empCheck) {
+	
+		//calculation method
+		public void empCalc() {
 			int wage=0;
 			int empHours=0;
+			int totalEmpHrs=0;
+			int totalWorkingDays=0;
+			while (totalEmpHrs <= Working_Hours && totalWorkingDays < Working_Days) {
+				totalWorkingDays++;
+				int empCheck =(int) Math.floor(Math.random()*10)%3;
 		switch (empCheck) {
 		case IS_FULL_TIME:
 			 empHours=8;
@@ -28,8 +34,12 @@ public class EmployyeeWage {
 			
 			default:
 				empHours=0;
-		}
-		wage=empHours*EMP_RATE_PER_HOUR*Working_Days;
+				}
+		totalEmpHrs+=empHours;
+		System.out.println("Day#: " + totalWorkingDays + "Emp hr: "+empHours);
+			}
+		wage=totalEmpHrs*EMP_RATE_PER_HOUR;
 		System.out.println("Emp wage :" +wage);
 	}
+
 }
