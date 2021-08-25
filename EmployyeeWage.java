@@ -9,37 +9,39 @@ public class EmployyeeWage {
 	public static final  int Working_Hours =100;
 	
 	//main method
-	public static void main(String[] args) {	
+	public static void main(String[] args) {
 		EmployyeeWage obj=new EmployyeeWage();
 		obj.empCalc();
 	}
 	
-		//calculation method
-		public void empCalc() {
-			int wage=0;
-			int empHours=0;
-			int totalEmpHrs=0;
-			int totalWorkingDays=0;
-			while (totalEmpHrs <= Working_Hours && totalWorkingDays < Working_Days) {
-				totalWorkingDays++;
-				int empCheck =(int) Math.floor(Math.random()*10)%3;
-		switch (empCheck) {
-		case IS_FULL_TIME:
-			 empHours=8;
-			break;
-		
-		case IS_PART_TIME:
-			 empHours=4;
-			break;
-			
+	//calculations
+	public void empCalc() {
+		int wage=0;
+		int empHours=0;
+		int totalEmpHrs=0;
+		int totalWorkingDays=0;
+		while (totalEmpHrs <= Working_Hours && totalWorkingDays < Working_Days) {
+			totalWorkingDays++;
+			int empCheck =(int) Math.floor(Math.random()*10)%3;
+			switch (empCheck) {
+			case IS_FULL_TIME:
+				empHours=8;
+				break;
+
+			case IS_PART_TIME:
+				empHours=4;
+				break;
+
 			default:
 				empHours=0;
-				}
-		totalEmpHrs+=empHours;
-		System.out.println("Day#: " + totalWorkingDays + "Emp hr: "+empHours);
 			}
+			totalEmpHrs+=empHours;
+			System.out.println("Day#: " + totalWorkingDays + "Emp hr: "+empHours);
+		}
 		wage=totalEmpHrs*EMP_RATE_PER_HOUR;
 		System.out.println("Emp wage :" +wage);
 	}
+	
+	
 
 }
