@@ -2,8 +2,22 @@ package bridgelabz;
 
 public class EmployyeeWage {
 
-	public static void main(String[] args) {
-		System.out.println("helloo");
-	}
+	//checking method
+		public void empPresntCheck() {
+			double empCheck = Math.floor(Math.random()*10)%2;
+			if(empCheck==0) {
+				System.out.println("Employee Present");
+			}
+			else {
+				System.out.println("Employee absent");
+			}
+		}
+		
+		//main method
+		public static void main(String[] args) {
+			EmployyeeWage obj=new EmployyeeWage();
+			obj.empPresntCheck();
+			
+		}
 
 }
